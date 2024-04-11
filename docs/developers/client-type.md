@@ -75,7 +75,7 @@ class MyOAuthClientProvider extends OAuthClient
 
 This is the minimum amount of implementation required for a typical OAuth client provider.
 
-Consume client providers are built around the [Auth](https://github.com/verbb/auth) which in turn in built around [league/oauth2-client](https://github.com/thephpleague/oauth2-client). You can see that the `getOAuthProviderClass()` must return a `League\OAuth2\Client\Provider\AbstractProvider` class.
+Consume client providers are built around the [Auth](https://github.com/verbb/auth) which in turn is built around [league/oauth2-client](https://github.com/thephpleague/oauth2-client). You can see that the `getOAuthProviderClass()` must return a `League\OAuth2\Client\Provider\AbstractProvider` class.
 
 ## Credentials Example
 A Credentials client is similar to an OAuth one, without the need to provide a `getOAuthProviderClass()` class.
