@@ -100,6 +100,10 @@ class Consume extends Plugin
             $event->rules['consume/clients/oauth/new'] = 'consume/clients/edit-oauth';
             $event->rules['consume/clients/oauth/<handle:{handle}>'] = 'consume/clients/edit-oauth';
             $event->rules['consume/settings'] = 'consume/plugin/settings';
+
+            if (Craft::$app->getConfig()->getGeneral()->headlessMode || !Craft::$app->getConfig()->getGeneral()->cpTrigger) {
+                $event->rules['consume/auth/callback'] = 'consume/auth/callback';
+            }
         });
     }
 
