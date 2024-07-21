@@ -49,7 +49,7 @@ class Service extends Component
 
         Event::trigger(self::class, self::EVENT_BEFORE_FETCH_DATA, $event);
 
-        if (! $event->isValid) {
+        if (!$event->isValid) {
             return $event->response;
         }
 
