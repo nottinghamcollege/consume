@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.12 - 2024-07-21
+
+### Changed
+- Update English translations.
+
+### Fixed
+- Fix Generic OAuth provider now parsing .env variables for Auth/Token/API URLs.
+
 ## 1.0.11 - 2024-04-29
 
 ### Added
