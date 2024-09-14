@@ -126,6 +126,17 @@ abstract class Client extends SavableComponent implements ClientInterface
         return false;
     }
 
+    public function getSettingsHtmlVariables(): array
+    {
+        return [
+            'client' => $this,
+            'fieldVariables' => [
+                'plugin' => 'consume',
+                'provider' => $this->getProviderName(),
+            ],
+        ];
+    }
+
     public function getProviderOptions(): array
     {
         return $this->providerOptions;

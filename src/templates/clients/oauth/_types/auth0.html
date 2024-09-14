@@ -3,9 +3,9 @@
 
 {% include 'consume/clients/oauth/_oauth' %}
 
-{{ forms.autosuggestField({
+{{ macros.proxyField(fieldVariables, 'autosuggestField', {
     label: 'Region' | t('consume'),
-    instructions: 'Enter your {provider} Region here.' | t('consume', { provider: client.providerName }),
+    instructions: 'Enter your {provider} {label} here.' | t('consume'),
     name: 'region',
     required: true,
     suggestEnvVars: true,
@@ -25,9 +25,9 @@
     errors: client.getErrors('region'),
 }) }}
 
-{{ forms.autosuggestField({
+{{ macros.proxyField(fieldVariables, 'autosuggestField', {
     label: 'Account' | t('consume'),
-    instructions: 'Enter your {provider} Account here.' | t('consume', { provider: client.providerName }),
+    instructions: 'Enter your {provider} {label} here.' | t('consume'),
     name: 'account',
     required: true,
     suggestEnvVars: true,
@@ -36,9 +36,9 @@
     errors: client.getErrors('account'),
 }) }}
 
-{{ forms.autosuggestField({
+{{ macros.proxyField(fieldVariables, 'autosuggestField', {
     label: 'Custom Domain' | t('consume'),
-    instructions: 'Enter your {provider} Custom Domain if using here.' | t('consume', { provider: client.providerName }),
+    instructions: 'Enter your {provider} {label} if using here.' | t('consume'),
     name: 'customDomain',
     suggestEnvVars: true,
     value: client.customDomain ?? '',

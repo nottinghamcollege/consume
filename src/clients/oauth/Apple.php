@@ -63,6 +63,8 @@ class Apple extends OAuthClient
 
     public function getSettingsHtml(): ?string
     {
+        $variables = $this->getSettingsHtmlVariables();
+
         $keyFilePaths = [];
         $path = Craft::$app->getPath()->getConfigPath() . DIRECTORY_SEPARATOR . 'consume';
 
@@ -89,10 +91,9 @@ class Apple extends OAuthClient
             ]];
         }
 
-        return Craft::$app->getView()->renderTemplate('consume/clients/oauth/_types/apple', [
-            'client' => $this,
-            'suggestions' => $keyFilePaths,
-        ]);
+        $variables['suggestions'] = $keyFilePaths;
+
+        return Craft::$app->getView()->renderTemplate('consume/clients/oauth/_types/apple', $variables);
     }
 
     public function getOAuthProviderConfig(): array

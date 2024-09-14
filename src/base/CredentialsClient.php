@@ -37,10 +37,9 @@ abstract class CredentialsClient extends Client implements CredentialsProviderIn
     public function getSettingsHtml(): ?string
     {
         $handle = StringHelper::toKebabCase(static::$providerHandle);
+        $variables = $this->getSettingsHtmlVariables();
 
-        return Craft::$app->getView()->renderTemplate("consume/clients/credentials/_types/$handle", [
-            'client' => $this,
-        ]);
+        return Craft::$app->getView()->renderTemplate("consume/clients/credentials/_types/$handle", $variables);
     }
 
     public function isConfigured(): bool

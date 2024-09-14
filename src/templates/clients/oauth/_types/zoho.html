@@ -3,9 +3,9 @@
 
 {% include 'consume/clients/oauth/_oauth' %}
 
-{{ forms.selectField({
+{{ macros.proxyField(fieldVariables, 'selectField', {
     label: 'Data Center' | t('consume'),
-    instructions: 'Select your {provider} Data Center here.' | t('consume', { provider: client.providerName }),
+    instructions: 'Select your {provider} {label} here.' | t('consume'),
     name: 'dataCenter',
     required: true,
     suggestEnvVars: true,
