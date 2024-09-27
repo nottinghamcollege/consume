@@ -33,7 +33,9 @@ class Service extends Component
 {
     // Constants
     // =========================================================================
+
     public const EVENT_BEFORE_FETCH_DATA = 'beforeFetchData';
+
 
     // Public Methods
     // =========================================================================

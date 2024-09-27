@@ -41,6 +41,18 @@ Additional request parameters can be provided to `fetchData()`, which are:
 
 Here, we're triggering a `GET` request to the `/account` endpoint (relative to the full URL defined in your `exampleClientHandle` client) and passing in a query string to limit (`?limit=5`).
 
+### Errors
+Consume by default will not return any data if an error or exception occurs. You'll just get `null` back from a `fetchData` request. To change this, you can pass `includeErrorResponse` as an option to the request.
+
+```twig
+{% set data = craft.consume.fetchData('exampleClientHandle', 'GET', 'account', {
+    includeErrorResponse: true,
+    query: {
+        limit: '5',
+    },
+}) %}
+```
+
 ### Twig Function
 You can use the `consume()` Twig function to fetch data, which is exactly the same as the above, just a shorthand version.
 
