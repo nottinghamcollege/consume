@@ -3,9 +3,9 @@
 
 {% include 'consume/clients/oauth/_oauth' %}
 
-{{ forms.autosuggestField({
+{{ macros.proxyField(fieldVariables, 'autosuggestField', {
     label: 'Subdomain' | t('consume'),
-    instructions: 'Enter your {provider} Subdomain here.' | t('consume', { provider: client.providerName }),
+    instructions: 'Enter your {provider} {label} here.' | t('consume'),
     name: 'subdomain',
     required: true,
     suggestEnvVars: true,

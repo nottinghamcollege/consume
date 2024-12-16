@@ -54,10 +54,9 @@ abstract class OAuthClient extends Client implements OAuthProviderInterface
     public function getSettingsHtml(): ?string
     {
         $handle = StringHelper::toKebabCase(static::$providerHandle);
+        $variables = $this->getSettingsHtmlVariables();
 
-        return Craft::$app->getView()->renderTemplate("consume/clients/oauth/_types/$handle", [
-            'client' => $this,
-        ]);
+        return Craft::$app->getView()->renderTemplate("consume/clients/oauth/_types/$handle", $variables);
     }
 
     public function isConfigured(): bool

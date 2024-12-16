@@ -5,7 +5,7 @@
 
 <hr>
 
-{{ forms.selectField({
+{{ macros.proxyField(fieldVariables, 'selectField', {
     label: 'Grant' | t('consume'),
     instructions: 'Select the type of OAuth Grant to use.' | t('consume'),
     name: 'grant',
@@ -20,9 +20,9 @@
     errors: client.getErrors('grant'),
 }) }}
 
-{{ forms.autosuggestField({
+{{ macros.proxyField(fieldVariables, 'autosuggestField', {
     label: 'Authorization URL' | t('consume'),
-    instructions: 'Enter the Authorization URL for this provider.' | t('consume'),
+    instructions: 'Enter the {label} for this provider.' | t('consume'),
     name: 'authorizationUrl',
     required: true,
     suggestEnvVars: true,
@@ -31,9 +31,9 @@
     errors: client.getErrors('authorizationUrl'),
 }) }}
 
-{{ forms.autosuggestField({
+{{ macros.proxyField(fieldVariables, 'autosuggestField', {
     label: 'Token URL' | t('consume'),
-    instructions: 'Enter the Token URL for this provider.' | t('consume'),
+    instructions: 'Enter the {label} for this provider.' | t('consume'),
     name: 'tokenUrl',
     required: true,
     suggestEnvVars: true,
@@ -42,9 +42,9 @@
     errors: client.getErrors('tokenUrl'),
 }) }}
 
-{{ forms.autosuggestField({
+{{ macros.proxyField(fieldVariables, 'autosuggestField', {
     label: 'API URL' | t('consume'),
-    instructions: 'Enter the API URL for this provider.' | t('consume'),
+    instructions: 'Enter the {label} for this provider.' | t('consume'),
     name: 'url',
     suggestEnvVars: true,
     required: true,

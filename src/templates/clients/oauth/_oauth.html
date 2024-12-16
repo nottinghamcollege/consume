@@ -9,16 +9,16 @@ To connect to {name}, follow our <a href="https://verbb.io/craft-plugins/consume
     {{ instructions | t('consume', { name: client.providerName, plugin: 'Consume' }) | md }}
 </div>
 
-{{ forms.textField({
+{{ macros.proxyField(fieldVariables, 'textField', {
     readonly: true,
     label: 'Redirect URI' | t('consume'),
-    instructions: 'Use this URI when setting up your {provider} app.' | t('consume', { provider: client.providerName }),
+    instructions: 'Use this URI when setting up your {provider} app.' | t('consume'),
     value: client.getRedirectUri(),
 }) }}
 
-{{ forms.autosuggestField({
+{{ macros.proxyField(fieldVariables, 'autosuggestField', {
     label: 'Client ID' | t('consume'),
-    instructions: 'Enter your {provider} Client ID key here.' | t('consume', { provider: client.providerName }),
+    instructions: 'Enter your {provider} {label} here.' | t('consume'),
     name: 'clientId',
     required: true,
     suggestEnvVars: true,
@@ -27,9 +27,9 @@ To connect to {name}, follow our <a href="https://verbb.io/craft-plugins/consume
     errors: client.getErrors('clientId'),
 }) }}
 
-{{ forms.autosuggestField({
+{{ macros.proxyField(fieldVariables, 'autosuggestField', {
     label: 'Client Secret' | t('consume'),
-    instructions: 'Enter your {provider} Client Secret here.' | t('consume', { provider: client.providerName }),
+    instructions: 'Enter your {provider} {label} here.' | t('consume'),
     name: 'clientSecret',
     required: true,
     suggestEnvVars: true,
@@ -44,7 +44,7 @@ To connect to {name}, follow our <a href="https://verbb.io/craft-plugins/consume
     {% set scopes = scopes | merge([{ scope: value }]) %}
 {% endfor %}
 
-{{ forms.editableTableField({
+{{ macros.proxyField(fieldVariables, 'editableTableField', {
     label: 'Scopes' | t('consume'),
     instructions: 'Provide any OAuth scopes for this provider.' | t('consume'),
     id: 'scopes',

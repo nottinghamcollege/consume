@@ -545,7 +545,7 @@ http://my-site.test/comsume/auth/callback
 Using this URL for Google won't work, as it'll detect `.test` is a non-public domain name. Using the Proxy Redirect URI will change the redirect URL to be:
 
 ```
-https://Consume.verbb.io?return=http://my-site.test/comsume/auth/callback
+https://proxy.verbb.io?return=http://my-site.test/comsume/auth/callback
 ```
 
 Here, it routes the request through to our Verbb servers, which forwards on the request to the URL in the `return` parameter (which would be your local project).
@@ -893,10 +893,6 @@ Follow the below steps to connect to the Salesforce API.
 1. In the **API (Enable OAuth Settings)** section, tick the **Enable OAuth Settings** checkbox.
     - In the **Callback URL** field, enter the value from the **Redirect URI** field in Consume.
     - In the **Selected OAuth Scopes** field, select the following permissions from the list and click **Add** arrow button:
-        - **Access and manage your data (api)**
-        - **Allow access to your unique identifier (openid)**.
-        - **Perform requests on your behalf at any time (refresh_token, offline_access)**.
-    - These may also appear named as the following:
         - **Manage user data via APIs (api)**
         - **Access unique user identifiers (openid)**
         - **Perform requests at any time (refresh_token, offline_access)**
@@ -910,7 +906,10 @@ Follow the below steps to connect to the Salesforce API.
 1. Click on the **Edit Policies** button.
 1. In the **OAuth policies** section:
     - In the **Permitted Users** field, select **All users may self-authorize**.
-    - In the **IP Relaxation** field, select **Relaxed IP restrictions**.
+    - In the **IP Relaxation** field, select **Relax IP restrictions**.
+    - In the **Refresh Token Policy** field, select **Refresh token is valid until revoked**.
+1. In the **Session Policies** section:
+    - Untick **High assurance session required**.
 1. Click the **Save** button.
 
 
