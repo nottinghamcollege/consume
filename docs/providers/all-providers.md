@@ -545,7 +545,7 @@ http://my-site.test/comsume/auth/callback
 Using this URL for Google won't work, as it'll detect `.test` is a non-public domain name. Using the Proxy Redirect URI will change the redirect URL to be:
 
 ```
-https://Consume.verbb.io?return=http://my-site.test/comsume/auth/callback
+https://proxy.verbb.io?return=http://my-site.test/comsume/auth/callback
 ```
 
 Here, it routes the request through to our Verbb servers, which forwards on the request to the URL in the `return` parameter (which would be your local project).
