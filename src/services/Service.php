@@ -202,6 +202,10 @@ class Service extends Component
             return $response;
         }
 
+	if ($format === 'raw') {
+	    return $response;
+	}
+
         $body = (string)$response->getBody()->getContents();
 
         if ($format === 'json') {
@@ -214,10 +218,6 @@ class Service extends Component
 
         if ($format === 'csv') {
             return (new CsvEncoder())->decode($body, 'csv');
-        }
-
-        if ($format === 'raw') {
-            return $response;
         }
 
         return $body;
